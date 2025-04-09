@@ -5,7 +5,7 @@ import { UpdateCourseDto } from './dto/update-course.dto';
 
 @Controller('courses')
 export class CoursesController {
-  constructor(private readonly coursesService: CoursesService) {}
+  constructor(private readonly coursesService: CoursesService) { }
 
   @Post()
   create(@Body() createCourseDto: CreateCourseDto) {
@@ -15,6 +15,11 @@ export class CoursesController {
   @Get()
   findAll() {
     return this.coursesService.findAll();
+  }
+
+  @Get('/forCourse/:courseid/addStudent/:studentId')
+  addStudentToCourse(@Param('courseid') courseid: string, @Param('studentId') studentId: string) {
+    return this.coursesService.addStudentToCourse(+courseid, +studentId);
   }
 
   @Get(':id')

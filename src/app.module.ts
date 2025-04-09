@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { StudentsModule } from './students/students.module';
 import { CoursesModule } from './courses/courses.module';
+import { Student } from './students/entities/student.entity';
+import { Course } from './courses/entities/course.entity';
 
 @Module({
   imports: [
@@ -12,9 +14,9 @@ import { CoursesModule } from './courses/courses.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'root',
-      database: 'testdb',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      password: 'pass@word1',
+      database: 'test',
+      entities: [Student, Course],
       synchronize: true,
     }),
     StudentsModule,
