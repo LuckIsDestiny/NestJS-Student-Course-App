@@ -1,4 +1,4 @@
-import { IsDate, IsNotEmpty, IsOptional, IsString, Length } from "class-validator";
+import { IsDateString, IsNotEmpty, IsOptional, IsString, Length } from "class-validator";
 
 export class CreateCourseDto {
     
@@ -15,10 +15,10 @@ export class CreateCourseDto {
     instructor: string;
 
     @IsNotEmpty()
-    @IsDate()
+    @IsDateString()
     startDate: Date;
 
     @IsOptional()
-    @IsDate()
+    @IsDateString()
     endDate: Date;
 }
